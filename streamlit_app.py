@@ -15,7 +15,7 @@ nltk.download('punkt')
 
 @st.experimental_singleton
 def init_pinecone():
-    api_key = API_KEY
+    api_key = st.secrets['API_KEY']
     pinecone.init(api_key=api_key, environment='us-west1-gcp')
     return pinecone.Index('video-search')
     
