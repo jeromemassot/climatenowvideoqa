@@ -1,5 +1,7 @@
-# climatenowvideoqa
+# Climate Now Video Q&A engine
+
 Semantic Search for Q&amp;A ClimateNow videos
+https://climatenow.com/video/
 
 This SteamLit webapp is backended by a Pinecone index referencing ClimateNow videos transcripts.
 It gives to the users the possiblity to run semantic search on these videos transcripts.
