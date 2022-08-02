@@ -1,0 +1,4 @@
+sentence-transformers
+transformers
+pinecone-client
+nltk
