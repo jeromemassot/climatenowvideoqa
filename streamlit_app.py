@@ -75,6 +75,4 @@ if search and query != "":
         df.at[df_index, "Answer"] = return_sentence[0]
         df.at[df_index, "Topic"] = return_sentence[2]
         df.at[df_index, "Url"] = return_sentence[1]
-    
-     st.table(df)  
-              
+    st.table(df)  
