@@ -42,16 +42,15 @@ def reconstruct_answered_context(query, top_k=3):
     # reconstruct the contexts
     returned_sentences = set()
     for context in xc['matches']:
-        print(context)
-        #text_context = context['metadata']['text']
-        #sentences = sent_tokenize(text_context)
-        #answer = question_answerer(question=query, context=text_context)['answer']
-        #for sentence in sentences:
-        #    if sentence.find(answer) > -1:
-        #        returned_sentences.add((sentence, context['metadata']['url'], context['metadata']['index']))
-        #        break
+        text_context = context['metadata']['text']
+        sentences = sent_tokenize(text_context)
+        answer = question_answerer(question=query, context=text_context)['answer']
+        for sentence in sentences:
+            if sentence.find(answer) > -1:
+                returned_sentences.add((sentence, context['metadata']['url'], context['metadata']['index']))
+                break
 
-    #return returned_sentences
+    return returned_sentences
 
 
 # Index and Retriever model setup
