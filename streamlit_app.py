@@ -6,6 +6,7 @@ from nltk.tokenize import sent_tokenize
 from transformers import pipeline
 
 import streamlit as st
+import pandas as pd
 import pinecone
 import nltk
 
