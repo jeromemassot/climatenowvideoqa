@@ -1,4 +1,5 @@
 sentence-transformers
-transformers
 pinecone-client
+transformers
+pandas
 nltk
