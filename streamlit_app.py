@@ -42,6 +42,7 @@ def reconstruct_answered_context(query, top_k=3):
     # reconstruct the contexts
     returned_sentences = set()
     for context in xc['matches']:
+        print(context)
         text_context = context['metadata']['text']
         sentences = sent_tokenize(text_context)
         answer = question_answerer(question=query, context=text_context)['answer']
