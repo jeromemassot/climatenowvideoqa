@@ -52,17 +52,15 @@ def reconstruct_answered_context(query, top_k=3):
 
     return returned_sentences
 
+# interface
+ 
+st.title("ClimateNow Videos Q&A")
+st.subheader("Explore knowledge contained in ClimateNow Video channel")
 
 # Index and Retriever model setup
 index = init_pinecone()
 retriever = init_retriever()
 question_answerer = load_qa_pipeline()
-
-# interface
-
-st.title("ClimateNow Videos Q&A")
-st.header("Climate Now Videos Q&A")
-st.subheader("Explore knowledge contained in ClimateNow Video channel")
 
 query = st.text_input("Question:", help="enter your question here")
 top_k = st.number_input("Nb of returned context:", 0, 5, help="Ranking contexts from videos")
