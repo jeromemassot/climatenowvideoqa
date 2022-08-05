@@ -1,5 +1,5 @@
  # Copyright : Petroglyphs NLP Consulting
- # author: Jerome Massot (jerome.massot.78@gmail.com
+ # author: Jerome Massot (jerome.massot.78@gmail.com)
 
 from sentence_transformers import SentenceTransformer
 from nltk.tokenize import sent_tokenize
