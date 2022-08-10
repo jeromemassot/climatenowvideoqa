@@ -26,7 +26,7 @@ def init_retriever():
     return SentenceTransformer('all-mpnet-base-v2')
 
 
-@st.cache
+@st.experimental_singleton
 def load_qa_pipeline():
     return pipeline("question-answering")
 
