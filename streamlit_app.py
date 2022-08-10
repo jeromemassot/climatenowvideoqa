@@ -68,10 +68,9 @@ search = st.button("Search")
 
 if search and query != "":
     returned_sentences = reconstruct_answered_context(query, top_k)
-    st.text(len(returned_sentences))
     columns = st.columns(len(returned_sentences))
     for i, col in enumerate(columns):
         with col:
-            st.markdown(f"Answer: {return_sentences[i][0]}")
-            #st.markdown(f"Topic: {return_sentences[i][1]}")
-            #st.video(return_sentences[i][2])
+            #st.markdown(f"Answer: {returned_sentences[i][0]}")
+            #st.markdown(f"Topic: {returned_sentences[i][1]}")
+            st.video(returned_sentences[i][2])
