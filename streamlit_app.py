@@ -71,7 +71,7 @@ if search and query != "":
     columns = st.columns(len(return_sentences))
     for i, col in enumerate(columns):
         with col:
-            st.text("tutu")
+            st.text(return_sentences[i][0])
             st.markdown(f"Answer: {return_sentences[i][0]}")
             #st.markdown(f"Topic: {return_sentences[i][1]}")
             #st.video(return_sentences[i][2])
