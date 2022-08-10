@@ -71,7 +71,7 @@ if search and query != "":
     columns = st.columns(len(returned_sentences))
     for i, col in enumerate(columns):
         with col:
-            start = returned_sentences.split('t=')[-1][:-1]
-            st.video(returned_sentences[i][1], starrt=start)
+            start = int(returned_sentences.split('t=')[-1][:-1])
+            st.video(returned_sentences[i][1], start_time=start)
             st.markdown(f"Answer: {returned_sentences[i][0]}")
             st.markdown(f"Topic: {returned_sentences[i][2]}")
