@@ -14,19 +14,19 @@ import nltk
 nltk.download('punkt')
 
 
-@st.experimental_singleton
+@st.cache
 def init_pinecone():
     api_key = st.secrets['API_KEY']
     pinecone.init(api_key=api_key, environment='us-west1-gcp')
     return pinecone.Index('video-search')
     
 
-@st.experimental_singleton
+@st.cache
 def init_retriever():
     return SentenceTransformer('all-mpnet-base-v2')
 
 
-@st.experimental_singleton
+@st.cache
 def load_qa_pipeline():
     return pipeline("question-answering")
 
