@@ -63,17 +63,15 @@ retriever = init_retriever()
 question_answerer = load_qa_pipeline()
 
 query = st.text_input("Question:", help="enter your question here")
-top_k = st.number_input("Nb of returned context:", 0, 5, help="Ranking contexts from videos")
+top_k = st.number_input("Nb of returned context:", 1, 5, help="Ranking contexts from videos")
 search = st.button("Search")
 
 if search and query != "":
-    df = pd.DataFrame(columns=["Answer", "Topic", "Url"])
-    return_sentences = reconstruct_answered_context(query, top_k)
+     return_sentences = reconstruct_answered_context(query, top_k)
     
-    columns = st.columns(len(return_sentences))
-    for i, col in enumerate(columns):
-        print(col)
-        with col:
-            #st.markdown(f"Answer: {return_sentences[i][0]}")
-            #st.markdown(f"Topic: {return_sentences[i][1]}")
-            st.video(return_sentences[i][2])
+     columns = st.columns(len(return_sentences))
+     for i, col in enumerate(columns):
+         with col:
+             st.markdown(f"Answer: {return_sentences[i][0]}")
+             st.markdown(f"Topic: {return_sentences[i][1]}")
+             st.video(return_sentences[i][2])
