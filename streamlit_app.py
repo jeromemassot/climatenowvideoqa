@@ -14,7 +14,7 @@ import nltk
 nltk.download('punkt')
 
 
-@st.cache
+@st.experimental_singleton
 def init_pinecone():
     api_key = st.secrets['API_KEY']
     pinecone.init(api_key=api_key, environment='us-west1-gcp')
