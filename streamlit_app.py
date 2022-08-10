@@ -74,5 +74,5 @@ if search and query != "":
         with col:
             start = int(returned_sentences[i][1].split('t=')[-1][:-1])
             st.video(returned_sentences[i][1], start_time=start)
-            st.markdown(f"Answer: {returned_sentences[i][0]}")
-            st.markdown(f"Topic: {returned_sentences[i][2]}")
+            st.markdown(f"**Answer**: {returned_sentences[i][0]}")
+            st.markdown(f"**Topic**: {returned_sentences[i][2]}")
