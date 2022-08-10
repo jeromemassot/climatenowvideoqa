@@ -54,7 +54,7 @@ def reconstruct_answered_context(query, top_k=3):
 
 # interface
 
-st.image("./decorations/logo-climate-now.svg", width=300)
+st.image("./decorations/logo-climate-now.svg", width=100)
 st.title("ClimateNow Videos Q&A")
 st.subheader("Explore knowledge contained in ClimateNow Video channel")
 
