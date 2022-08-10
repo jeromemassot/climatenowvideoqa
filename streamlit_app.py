@@ -67,11 +67,11 @@ top_k = st.number_input("Nb of returned context:", 1, 5, help="Ranking contexts 
 search = st.button("Search")
 
 if search and query != "":
-    return_sentences = reconstruct_answered_context(query, top_k)
-    columns = st.columns(len(return_sentences))
+    returned_sentences = reconstruct_answered_context(query, top_k)
+    columns = st.columns(len(returned_sentences))
     for i, col in enumerate(columns):
         with col:
-            st.text(return_sentences[i][0])
+            st.text(i + return_sentences[i])
             st.markdown(f"Answer: {return_sentences[i][0]}")
             #st.markdown(f"Topic: {return_sentences[i][1]}")
             #st.video(return_sentences[i][2])
