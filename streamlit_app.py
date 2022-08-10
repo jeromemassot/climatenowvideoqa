@@ -32,7 +32,7 @@ def load_qa_pipeline():
 
 
 def reconstruct_answered_context(query, top_k=3):
-    
+ 
     # embed the query
     xq = retriever.encode([query]).tolist()
     
@@ -69,9 +69,10 @@ search = st.button("Search")
 if search and query != "":
     df = pd.DataFrame(columns=["Answer", "Topic", "Url"])
     return_sentences = reconstruct_answered_context(query, top_k)
-    for return_sentence in return_sentences:
-        df_index = len(df)
-        df.at[df_index, "Answer"] = return_sentence[0]
-        df.at[df_index, "Topic"] = return_sentence[2]
-        df.at[df_index, "Url"] = return_sentence[1]
-    st.table(df)  
+    
+    columns = st.columns(len(return_sentences))
+    for i, col in enumerate(columns):
+        with col:
+            st.markdown(f"Answer: {return_sentences[i][0]}")
+            st.markdown(f"Topic: {return_sentences[i][1]}")
+            st.video(return_sentences[i][2])
