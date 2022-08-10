@@ -21,7 +21,7 @@ def init_pinecone():
     return pinecone.Index('video-search')
     
 
-@st.cache
+@st.experimental_singleton
 def init_retriever():
     return SentenceTransformer('all-mpnet-base-v2')
 
