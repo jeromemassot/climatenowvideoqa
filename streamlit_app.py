@@ -23,7 +23,7 @@ def init_pinecone():
 
 @st.experimental_singleton
 def init_retriever():
-    return SentenceTransformer('all-mpnet-base-v2')
+    return SentenceTransformer('multi-qa-mpnet-base-dot-v1')
 
 
 @st.experimental_singleton
@@ -55,8 +55,8 @@ def reconstruct_answered_context(query, top_k=3):
 # interface
 
 st.image("./decorations/logo-climate-now.svg", width=100)
-st.title("ClimateNow Videos Q&A")
-st.subheader("Explore knowledge contained in ClimateNow Video channel")
+st.title("ClimateNow Videos and Podcasts Q&A")
+st.subheader("Explore knowledge contained in ClimateNow Video and Podcast channel")
 
 # Index and Retriever model setup
 index = init_pinecone()
