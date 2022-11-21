@@ -54,13 +54,18 @@ def reconstruct_answered_context(query, top_k=3):
 
 # interface
 
-st.hbox([
-    st.image("./decorations/logo-climate-now.svg", width=100),
-    st.image("./decorations/logo-petroglyphs.jpg", width=100)
-])
+st.image("./decorations/logo-climate-now.svg", width=100),
 
 st.title("ClimateNow Videos and Podcasts Q&A Engine")
 st.subheader("Explore knowledge contained in ClimateNow Video and Podcast channel")
+
+st.info(
+    """
+    Disclamer: the content shown in this page is the property of Climate Now. 
+    Petroglyphs NLP Consulting has only done the content parsing, the indexing and the 
+    Semantic Search Engine.
+    """
+)
 
 # Index and Retriever model setup
 index = init_pinecone()
