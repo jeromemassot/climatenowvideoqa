@@ -73,6 +73,10 @@ retriever = init_retriever()
 question_answerer = load_qa_pipeline()
 
 query = st.text_input("Question:", help="enter your question here")
+
+filter_nature = st.multiselect(options=['podcast', 'video'])
+filter_topics = st.multiselect(options=[])
+
 top_k = st.number_input("Nb of returned context:", 1, 5, help="Ranking contexts from videos")
 search = st.button("Search")
 
