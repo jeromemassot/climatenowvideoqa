@@ -75,7 +75,16 @@ question_answerer = load_qa_pipeline()
 query = st.text_input("Question:", help="enter your question here")
 
 filter_nature = st.multiselect(options=['podcast', 'video'])
-filter_topics = st.multiselect(options=[])
+
+keywords = [
+    'biomass', 'climate', 'concrete', 'cost', 'efficiency', 'electricity',
+    'emission', 'energy', 'finance', 'fuel', 'hydrogen', 'industry',
+    'mineral', 'model', 'nuclear', 'ocean', 'plastic', 'policy',
+    'regulation', 'risk', 'scope', 'shipping', 'soil', 'solar',
+    'steel', 'storage', 'technology', 'trading', 'transportation',
+    'tree', 'vegetation', 'war', 'warming', 'waste', 'water', 'wind'
+]
+filter_topics = st.multiselect(options=keywords)
 
 top_k = st.number_input("Nb of returned context:", 1, 5, help="Ranking contexts from videos")
 search = st.button("Search")
