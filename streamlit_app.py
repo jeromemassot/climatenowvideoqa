@@ -61,7 +61,7 @@ st.subheader("Explore knowledge contained in ClimateNow Video and Podcast channe
 
 st.info(
     """
-    Disclamer: the content shown in this page is the property of Climate Now. 
+    Disclaimer: the content shown in this page is the property of Climate Now. 
     Petroglyphs NLP Consulting has only done the content parsing, the indexing and the 
     Semantic Search Engine.
     """
