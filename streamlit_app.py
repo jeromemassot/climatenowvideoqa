@@ -97,12 +97,12 @@ st.subheader("Explore knowledge contained in ClimateNow Video and Podcast channe
 # Index and Retriever model setup
 index = init_pinecone()
 retriever = init_retriever()
-question_answerer = load_qa_pipeline()
+#question_answerer = load_qa_pipeline()
 
 query = st.text_input("Question:", help="enter your question here")
 filter_nature = st.multiselect(label="Media Type", options=['Podcast', 'Video'], help="Search Podcasts and/or Videos")
 top_k = st.number_input("Nb of returned context:", 1, 3, help="Top 3 ranking contexts maximum")
-search = st.button("Show me retrieved information and possible Answer...")
+search = st.button("Search")
 
 if search and query != "":
     returned_contexts_answers = list(reconstruct_answered_context(index, query, top_k, filter_nature))
@@ -129,8 +129,8 @@ if search and query != "":
 
                 merged_text += ' ' + text
 
-        answer = question_answerer(question=query, context=merged_text)['answer']
-        st.info(f'A possible answer to your question is: **{answer}**')
+        #answer = question_answerer(question=query, context=merged_text)['answer']
+        #st.info(f'A possible answer to your question is: **{answer}**')
 
     else:
         st.warning("Nothing found, sorry...")
