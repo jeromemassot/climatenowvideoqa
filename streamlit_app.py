@@ -102,7 +102,7 @@ question_answerer = load_qa_pipeline()
 query = st.text_input("Question:", help="enter your question here")
 filter_nature = st.multiselect(label="Media Type", options=['Podcast', 'Video'], help="Search Podcasts and/or Videos")
 top_k = st.number_input("Nb of returned context:", 1, 3, help="Top 3 ranking contexts maximum")
-search = st.button("Show me possible contexts and Answer...")
+search = st.button("Show me retrieved information and possible Answer...")
 
 if search and query != "":
     returned_contexts_answers = list(reconstruct_answered_context(index, query, top_k, filter_nature))
