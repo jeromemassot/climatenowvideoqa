@@ -31,13 +31,28 @@ def load_qa_pipeline():
     return pipeline("question-answering")
 
 
-def reconstruct_answered_context(query, top_k=3):
+topics = [
+    'biomass', 'climate', 'concrete', 'cost', 'efficiency', 'electricity',
+    'emission', 'energy', 'finance', 'fuel', 'hydrogen', 'industry',
+    'mineral', 'model', 'nuclear', 'ocean', 'plastic', 'policy',
+    'regulation', 'risk', 'scope', 'shipping', 'soil', 'solar',
+    'steel', 'storage', 'technology', 'trading', 'transportation',
+    'tree', 'vegetation', 'war', 'warming', 'waste', 'water', 'wind'
+]
+
+
+def reconstruct_answered_context(query, top_k=3, nature=['podcast', 'video'], topics=topics):
  
     # embed the query
     xq = retriever.encode([query]).tolist()
     
     # search the contexts
-    xc = index.query(xq, top_k=top_k, include_metadata=True)
+    xc = index.query(
+        xq, 
+        top_k=top_k, 
+        filter={"keywords": {"$in": topics}, "nature": {"$in": nature}},
+        include_metadata=True
+    )
     
     # reconstruct the contexts
     returned_sentences = set()
@@ -74,23 +89,14 @@ question_answerer = load_qa_pipeline()
 
 query = st.text_input("Question:", help="enter your question here")
 
-filter_nature = st.multiselect(options=['podcast', 'video'])
-
-keywords = [
-    'biomass', 'climate', 'concrete', 'cost', 'efficiency', 'electricity',
-    'emission', 'energy', 'finance', 'fuel', 'hydrogen', 'industry',
-    'mineral', 'model', 'nuclear', 'ocean', 'plastic', 'policy',
-    'regulation', 'risk', 'scope', 'shipping', 'soil', 'solar',
-    'steel', 'storage', 'technology', 'trading', 'transportation',
-    'tree', 'vegetation', 'war', 'warming', 'waste', 'water', 'wind'
-]
-filter_topics = st.multiselect(options=keywords)
+filter_nature = st.multiselect(label="Media Type", options=['podcast', 'video'])
+filter_topics = st.multiselect(label="Topics", options=topics)
 
 top_k = st.number_input("Nb of returned context:", 1, 5, help="Ranking contexts from videos")
 search = st.button("Search")
 
 if search and query != "":
-    returned_sentences = list(reconstruct_answered_context(query, top_k))
+    returned_sentences = list(reconstruct_answered_context(query, top_k, filter_nature, filter_topics))
     columns = st.columns(len(returned_sentences))
     for i, col in enumerate(columns):
         with col:
