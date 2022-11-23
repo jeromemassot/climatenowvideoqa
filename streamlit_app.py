@@ -19,7 +19,7 @@ def init_pinecone():
     when the app is deployed on Streamlit Cloud.
     :return: pinecone index object
     """
-    api_key = "701ae398-351c-4a49-9a3d-586501bbd09b" #st.secrets['API_KEY']
+    api_key = st.secrets['API_KEY']
     pinecone.init(api_key=api_key, environment='us-west1-gcp')
     return pinecone.Index('video-search')
     
