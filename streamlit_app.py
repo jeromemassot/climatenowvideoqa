@@ -151,6 +151,6 @@ with bottom_column_2:
         """
         If you are interested by adding similar Semantic Search Engine 
         to your content, please contact Petroglyphs NLP Consulting 
-        (jerome.massot.78@gmail.com)
+        (petroglyphs.nlp@gmail.com)
         """
     )
