@@ -3,3 +3,4 @@ pinecone-client
 transformers
 pandas
 nltk
+streamlit
