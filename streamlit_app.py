@@ -21,7 +21,7 @@ def init_pinecone():
     """
     api_key = st.secrets['API_KEY']
     pinecone.init(api_key=api_key, environment='us-west1-gcp')
-    return pinecone.Index('video-search')
+    return pinecone.Index('video-index-merged')
     
 
 @st.experimental_singleton
@@ -59,7 +59,7 @@ def reconstruct_answered_context(index, query, top_k=3, nature=['Video', 'Podcas
         xc = index.query(
             xq, 
             top_k=top_k,
-            filter={'nature': {"$in": nature}},
+            filter={'nature': {'$in': nature}, 'origin': {'$eq': 'ClimateNow'}},
             include_metadata=True
         )
     except PineconeProtocolError:
