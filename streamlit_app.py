@@ -161,17 +161,4 @@ with bottom_column_2:
     )
 
 # buy me a coffee button
-bmac_widget = """<a href="https://www.buymeacoffee.com/petroglyphx"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=petroglyphx&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>"""
-html(bmac_widget, height=70, width=250)
-st.markdown(
-    """
-    <style>
-        iframe[width="250"] {
-            position: fixed;
-            bottom: 50px;
-            right: 100px;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+st.image("./decorations/bmc_qr.png", width=100)
