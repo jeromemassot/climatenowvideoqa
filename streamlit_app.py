@@ -147,7 +147,7 @@ st.warning(
     """
 )
 
-bottom_column_1, bottom_column_2 = st.columns([1, 9])
+bottom_column_1, bottom_column_2, bottom_column_3 = st.columns([2, 6, 2])
 with bottom_column_1:
     st.image("./decorations/logo-petroglyphs.jpg", width=60)
 
@@ -160,5 +160,6 @@ with bottom_column_2:
         """
     )
 
-# buy me a coffee button
-st.image("./decorations/bmc_qr.png", width=100)
+with bottom_column_3:
+    # buy me a coffee button
+    st.image("./decorations/bmc_qr.png", width=100)
