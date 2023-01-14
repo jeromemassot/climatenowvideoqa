@@ -8,6 +8,7 @@ from transformers import pipeline
 from pinecone import PineconeProtocolError
 import pinecone
 
+from streamlit.components.v1 import html
 import streamlit as st
 import pandas as pd
 
@@ -95,8 +96,12 @@ st.title("ClimateNow Videos and Podcasts Q&A Engine")
 st.subheader("Explore knowledge contained in ClimateNow Video and Podcast channel")
 
 # Index and Retriever model setup
-index = init_pinecone()
-retriever = init_retriever()
+with st.spinner(text="Initializing index..."):
+    index = init_pinecone()
+
+with st.spinner(text="Initializing Retriever model..."):
+    retriever = init_retriever()
+
 #question_answerer = load_qa_pipeline()
 
 query = st.text_input("Question:", help="enter your question here")
@@ -154,3 +159,19 @@ with bottom_column_2:
         (petroglyphs.nlp@gmail.com)
         """
     )
+
+# buy me a coffee button
+bmac_widget = """<a href="https://www.buymeacoffee.com/petroglyphx"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=petroglyphx&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" /></a>"""
+html(bmac_widget, height=70, width=250)
+st.markdown(
+    """
+    <style>
+        iframe[width="250"] {
+            position: fixed;
+            bottom: 50px;
+            right: 100px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
