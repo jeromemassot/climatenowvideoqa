@@ -168,4 +168,4 @@ with bottom_column_2:
 
 with bottom_column_3:
     # buy me a coffee button
-    st.image("./decorations/bmc_qr.png", width=100, )
+    st.image("./decorations/bmc_qr.png", width=100)
