@@ -149,17 +149,23 @@ st.warning(
 
 bottom_column_1, bottom_column_2, bottom_column_3 = st.columns([2, 6, 2])
 with bottom_column_1:
-    st.image("./decorations/logo-petroglyphs.jpg", width=60)
+    st.image("./decorations/logo-petroglyphs.jpg")
 
 with bottom_column_2:
     st.caption(
         """
         If you are interested by adding similar Semantic Search Engine 
         to your content, please contact Petroglyphs NLP Consulting 
-        (petroglyphs.nlp@gmail.com)
+        (petroglyphs.nlp@gmail.com).
+        """)
+    st.caption(
+        """
+        You can also 
+        ["Buy me a Coffee"](https://www.buymeacoffee.com/petroglyphx)
+        for the coasts associated to the Search indexing. Thanks.
         """
     )
 
 with bottom_column_3:
     # buy me a coffee button
-    st.image("./decorations/bmc_qr.png", width=100)
+    st.image("./decorations/bmc_qr.png", width=100, )
