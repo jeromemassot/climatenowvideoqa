@@ -162,7 +162,7 @@ with bottom_column_2:
         """
         You can also 
         ["Buy me a Coffee"](https://www.buymeacoffee.com/petroglyphx)
-        for the coasts associated to the Search indexing. Thanks.
+        to balance the cost associated to the Search indexing. Thanks.
         """
     )
 
